@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chinni-Hand-glazed ceramics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header_inner">
+        <a class="logo" href="#">Chinni</a>
+
+        <label class="search" for="search">
+          <span class="visually-hidden">Search products</span>
+          <input
+            id="search"
+            type="search"
+            placeholder="Search bowls,plates,vases..."
+            autocomplete="off"
+          />
+        </label>
+
+        <button
+          id="cart-toggle"
+          class="cart-btn"
+          type="button"
+          aria-controls="cart"
+          aria-expanded="false"
+        >
+          Cart
+          <span id="cart-count" class="cart-btn__count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <h1>Hand-glazed ceramics from Rishtan.</h1>
+            <p>
+              Bowls,plates and vases shaped by hand and fired in small
+              batches.Every piece is a little different.
+            </p>
+            <a class="btn btn--primary" href="#shop">Shop the collection</a>
+          </div>
+          <div class="hero__art" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section id="shop" class="shop">
+        <div class="container">
+          <div class="toolbar">
+            <div id="filters" class="filters" role="group" aria-label="Filter by category"></div>
+
+            <div class="toolbar__right">
+              <p id="result-count" class="result-count" aria-live="polite"></p>
+              <label class="sort">
+                <span class="visually-hidden">Sort products</span>
+                <select id="sort">
+                  <option value="default">Featured</option>
+                  <option value="price-asc">Price:low to high</option>
+                  <option value="price-desc">Price:high to low</option>
+                  <option value="name-asc">Name:A to Z</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div id="product-grid" class="grid"></div>
+          <div id="error-message" class="error-message" hidden>
+            <h2>Unable to load products</h2>
+            <p>Please check your internet connection and try again.</p>
+            <button id="retry-btn" class="btn btn--primary" type="button">Try again</button>
+          </div>
+
+          <div id="empty-state" class="empty" hidden>
+            <h2>No products found</h2>
+            <p>Try a different search or choose another category</p>
+            <button id="reset-filters" class="btn btn--ghost" type="button">Clear filters</button>
+          </div>
+
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>Chinni - a demo store built with HTML,CSS and vanilla JavaScript.</p>
+      </div>
+    </footer>
+
+    <div id="overlay" class="overlay"></div>
+
+
+<aside id="cart" class="cart" aria-label="Shopping cart" aria-hidden="true">
+
+  <div class="cart__head">
+    <h2>Your cart</h2>
+    <button id="cart-close" class="icon-btn"
+      type="button" aria-label="Close cart">x</button>
+  </div>
+
+  <p id="cart-empty" class="cart__empty">
+    Your cart is empty. Add something you like.
+  </p>
+
+  <ul id="cart-items" class="cart__items"></ul>
+
+  <div class="cart__foot">
+    <div class="cart__total">
+      <span>Total</span>
+      <strong id="cart-total">$0.00</strong>
+    </div>
+
+    <button id="checkout" class="btn btn--primary btn--block"
+      type="button">Checkout</button>
+
+    <button id="clear-cart" class="btn btn--ghost btn--block"
+      type="button">Clear cart</button>
+  </div>
+
+</aside>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <template id="product-template">
+      <article class="card" data-id="">
+        <div class="card__media">
+          <img class="card__img" src="" alt="" loading="lazy">
+        </div>
+        <div class="card__body">
+          <p class="card__category"></p>
+          <h3 class="card__title"></h3>
+        <div class="card__row">
+          <p class="card__price"></p>
+          <button class="btn btn--primary btn--sm card__add" type="button">Add to cart</button>
+        </div>
+
+      </article>
+
+    </template>
+
+    <template id="cart-item-template">
+      <li class="cart-item" data-id="">
+        <img class="cart-item__img" src="" alt="">
+        <div class="cart-item__info">
+        <h3 class="cart-item__title"></h3>
+        <p class="cart-item__price"></p>
+        <div class="qty">
+          <button class="qty__btn" type="button" data-action="dec" aria-label="Decrease quantity">-</button>
+          <span class="qty__value">1</span>
+          <button class="qty__btn" type="button" data-action="inc" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+      <button class="cart-item__remove" type="button" data-action="remove">Remove</button>
+
+      </li>
+    </template>
+    <script src="app.js" defer></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
